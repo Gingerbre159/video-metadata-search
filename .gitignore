@@ -13,11 +13,24 @@ target/
 .springBeans
 .sts4-cache
 
+# Ignore Maven and Gradle files
+/target/
+*.jar
+*.war
+*.ear
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
 *.ipr
+
+# Logs
+*.log
+
+# OS Files
+.DS_Store
+Thumbs.db
 
 ### NetBeans ###
 /nbproject/private/
