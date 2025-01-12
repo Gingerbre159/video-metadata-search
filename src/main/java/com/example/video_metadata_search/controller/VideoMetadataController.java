@@ -21,7 +21,11 @@ public class VideoMetadataController {
     }
 
     @GetMapping
-    public List<VideoMetadata> searchVideos(@RequestParam String query) {
+    public List<VideoMetadata> searchVideos(@RequestParam(required = false) String query) {
+        if (query == null || query.isEmpty()) {
+            // Return all videos if no query is provided
+            return service.getAllVideos();
+        }
         return service.search(query);
     }
 }

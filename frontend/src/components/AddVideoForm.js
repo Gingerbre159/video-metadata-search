@@ -14,17 +14,20 @@ const AddVideoForm = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    axios
-      .post('http://localhost:8080/api/videos', formData)
-      .then(() => {
-        alert('Video metadata added successfully!');
-        setFormData({ title: '', description: '', tags: '', timestamp: '' });
-      })
-      .catch((err) => {
-        console.error(err);
-        alert('Failed to add video metadata.');
-      });
+      e.preventDefault();
+      console.log('Submitting form data:', formData); // Debugging
+
+      axios
+          .post('http://localhost:8080/api/videos', formData)
+          .then(() => {
+              console.log('Video metadata added successfully');
+              alert('Video metadata added successfully!');
+              setFormData({ title: '', description: '', tags: '', timestamp: '' });
+          })
+          .catch((err) => {
+              console.error('Error adding video metadata:', err); // Debugging
+              alert('Failed to add video metadata.');
+          });
   };
 
   return (

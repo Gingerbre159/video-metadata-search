@@ -4,7 +4,13 @@ const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState('');
 
   const handleSearch = () => {
-    onSearch(query);
+      console.log('Searching with query:', query); // Debugging
+
+      if (!query.trim()) {
+          alert('Please enter a search query.');
+          return;
+      }
+      onSearch(query.trim());
   };
 
   return (

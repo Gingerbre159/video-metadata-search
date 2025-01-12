@@ -8,6 +8,8 @@ const App = () => {
   const [videos, setVideos] = useState([]);
 
   const handleSearch = (query) => {
+    console.log('Making API call to search videos:', query); // Debugging
+
     axios
       .get(`http://localhost:8080/api/videos?query=${query}`)
       .then((response) => {

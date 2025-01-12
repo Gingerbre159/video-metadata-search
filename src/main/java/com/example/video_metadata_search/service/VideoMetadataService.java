@@ -21,4 +21,8 @@ public class VideoMetadataService {
     public List<VideoMetadata> search(String query) {
         return repository.findByTitleContainingIgnoreCaseOrTagsContainingIgnoreCase(query, query);
     }
+
+    public List<VideoMetadata> getAllVideos() {
+        return repository.findAll();
+    }
 }
